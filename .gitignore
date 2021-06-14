@@ -1,2 +1,8 @@
 # OSx
 .DS_Store
+
+# Node
+node_modules/
+
+# Database
+postgres-data/

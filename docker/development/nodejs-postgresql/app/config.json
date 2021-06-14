@@ -1,0 +1,8 @@
+{
+	"database": {
+		"POSTGRES_USER": "root",
+		"POSTGRES_HOST": "database",
+		"POSTGRES_DB": "company",
+		"POSTGRES_PASSWORD": "123456"
+	}
+}
