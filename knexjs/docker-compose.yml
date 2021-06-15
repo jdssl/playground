@@ -1,0 +1,44 @@
+version: '2'
+services:
+  database:
+    build: ./database
+    restart: always
+    container_name: database
+    volumes:
+      - ./database/scripts/db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./database/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - network-dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - network-dev
+    build: ./app
+    restart: always
+    container_name: app
+    environment:
+      POSTGRES_HOST: database
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_D: company
+    volumes:
+      - ./app:/app
+    tty: true
+
+volumes:
+  database-data:
+    driver: local
+
+networks:
+  network-dev:
+    driver: bridge

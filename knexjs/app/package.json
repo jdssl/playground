@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon index.js"
+  },
+  "dependencies": {
+    "knex": "^0.95.6",
+    "pg": "^8.6.0"
+  }
+}
