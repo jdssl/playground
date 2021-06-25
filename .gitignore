@@ -6,3 +6,6 @@ node_modules/
 
 # Database
 postgres-data/
+
+# JetBrains
+.idea/
