@@ -30,7 +30,7 @@ services:
       POSTGRES_HOST: database
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 123456
-      POSTGRES_D: company
+      POSTGRES_DATABASE: company
     volumes:
       - ./app:/app
     tty: true
