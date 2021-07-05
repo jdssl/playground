@@ -9,3 +9,8 @@ postgres-data/
 
 # JetBrains
 .idea/
+
+# Streams
+big.file
+output.txt
+my.csv
