@@ -13,3 +13,4 @@ postgres-data/
 # Streams
 big.file
 output.txt
+my.csv
