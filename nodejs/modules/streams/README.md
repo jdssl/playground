@@ -16,6 +16,7 @@
 1. Node transform data to buffer, a part of file.
 2. The file in Nodes is called of chunks.
 3. Readable Streams -> Transform Streams -> Writable Streams
+4. Pipeline (funnel)
 
 ## Readable Streams
 
