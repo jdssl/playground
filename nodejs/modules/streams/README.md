@@ -29,3 +29,7 @@ Used to step of data conversion and mapping.
 ## Writable Streams
 
 Step final, for every item in chain data it throws in the output of the process.
+
+## Show number line file
+
+- cat file.csv | wc -l
