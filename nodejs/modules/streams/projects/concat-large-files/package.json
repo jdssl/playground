@@ -1,0 +1,19 @@
+{
+  "name": "concat-large-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "DEBUG=app* node --harmony-top-level-await index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "2.0",
+    "debug": "4.1",
+    "json-to-csv-stream": "1.1",
+    "stream-concat": "^0.3.0"
+  }
+}
