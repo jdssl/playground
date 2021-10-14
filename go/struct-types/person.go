@@ -4,15 +4,15 @@ import "fmt"
 
 type Person struct {
 	firstName string
-	lastName string
-	age int
+	lastName  string
+	age       int
 
 	hobby struct {
 		name string
 	}
 }
 
-func main () {
+func main() {
 	var person Person
 	person.firstName = "Jonatan"
 	person.lastName = "Lima"
