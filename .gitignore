@@ -16,3 +16,9 @@ output.txt
 my.csv
 dataset/
 .elixir_ls/
+
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
