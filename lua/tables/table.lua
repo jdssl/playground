@@ -11,3 +11,22 @@ t.cat = 'hunter'
 t.sports = {}
 t.age = nil
 
+-- Use literal notation for any (non-nil) values as key
+u = {[123] = 'qwer', [{}] = 123, [3.2] = 'bo'}
+print(u[3.2])
+print(u[{}]) -- return nil only strings & number are more potables keys
+
+function h(x) print(x.name) end
+h{name = 'balu'}
+
+for key, val in pairs(u) do
+	print(key, val)
+end
+
+-- _G is a special table of all globals
+print(_G['_G'] == _G)
+
+v = {'value1', 'value2', 12, 'qwerty'}
+for i = 1, #v do
+	print(v[i])
+end
