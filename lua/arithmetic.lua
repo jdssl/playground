@@ -1,3 +1,6 @@
+-- Numbers and Arithmetic
+-- All numbers are doubles
+
 a = 2
 b = 3
 
