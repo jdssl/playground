@@ -1,3 +1,3 @@
 module.exports = {
-	default: `--format-options '{"snippetInterface": "synchronous"}' --publish-quiet`
+	default: `--format-options '{"snippetInterface": "synchronous"}' --require 'step-definitions/**/*.js' --publish-quiet`
 }
