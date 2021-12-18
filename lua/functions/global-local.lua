@@ -1,7 +1,7 @@
 -- Functions are first-class, may be local/global
 
 -- Global
-function f(x) return x * x end
+local function f(x) return x * x end
 f = function (x) return x * x end
 
 -- Local
