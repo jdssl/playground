@@ -15,8 +15,8 @@ dofile('mod2.lua')  --> Hi!
 dofile('mod2.lua')  --> Hi! (runs it again)
 
 -- loadfile loads a lua file but doesn't run it yet.
-f = loadfile('mod2.lua')  -- Call f() to run it.
+local f = loadfile('mod2.lua')  -- Call f() to run it.
 
 -- loadstring is loadfile for strings.
-g = loadstring('print(343)')  -- Returns a function.
+local g = loadstring('print(343)')  -- Returns a function.
 g()  -- Prints out 343; nothing printed before now.

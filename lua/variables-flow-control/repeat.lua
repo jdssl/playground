@@ -1,6 +1,6 @@
 -- Repeat, another loop construct
 
-num = 10
+local num = 10
 repeat
 	print('Lua for neovim')
 	num = num - 1

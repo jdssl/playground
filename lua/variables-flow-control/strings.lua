@@ -1,8 +1,8 @@
 -- Strings
 
-s = 'balu' -- Immutable string
-t = "balu" -- nice
-r = [[ multi-line
+local s = 'balu' -- Immutable string
+local t = "balu" -- nice
+local r = [[ multi-line
 	strings.
 ]]
 i = nil -- Undefined

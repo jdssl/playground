@@ -2,14 +2,14 @@
 -- Metatables and Metamethods
 ---------------------------------
 
-f1 = {a = 1, b = 2}
-f2 = {a = 2, b = 3}
+local f1 = {a = 1, b = 2}
+local f2 = {a = 2, b = 3}
 
 -- s = f1 + f2 -- FAIL
 
-metafunction = {}
+local metafunction = {}
 function metafunction.__add(f1, f2)
-	sum = {}
+	local sum = {}
 	sum.b = f1.b * f2.b
 	sum.a = f1.a * f2.b + f2.a * f1.b
 	return sum
@@ -18,14 +18,14 @@ end
 setmetatable(f1, metafunction)
 setmetatable(f2, metafunction)
 
-s = f1 + f2
+local s = f1 + f2
 
-getmetatable(f1)
+print(getmetatable(f1))
 
-defaultFavs = {animal = 'cat', food = 'pizza'}
-myFavs = {food = 'soup'}
+local defaultFavs = {animal = 'cat', food = 'pizza'}
+local myFavs = {food = 'soup'}
 setmetatable(myFavs, {__index = defaultFavs})
-eatenBy = myFavs.animal
+local eatenBy = myFavs.animal
 print(eatenBy)
 
 -- Direct table lookups that fail will retry using

@@ -5,7 +5,7 @@
 Cat = {}
 
 function Cat:new()
-	newObj = {sound = 'miau'}
+	local newObj = {sound = 'miau'}
 	self.__index = self
 	return setmetatable(newObj, self)
 end
@@ -13,7 +13,7 @@ end
 function Cat:makeSound()
 	print('I say ' .. self.sound)
 end
-mrCat = Cat:new()
+local mrCat = Cat:new()
 mrCat:makeSound()
 
 ------------------------------
@@ -23,19 +23,19 @@ mrCat:makeSound()
 LoudCat = Cat:new()
 
 function LoudCat:makeSound()
-	s = self.sound .. ' '
+	local s = self.sound .. ' '
 	print(s .. s .. s)
 end
-ldCat = LoudCat:new()
+local ldCat = LoudCat:new()
 ldCat:makeSound()
 
 -- Subclass's
 
 function LoudCat:new()
-	newObj = {}
+	local newObj = {}
 	self.__index = self
 	return setmetatable(newObj, self)
 end
-sbCat = LoudCat:new()
+local sbCat = LoudCat:new()
 -- sbCat.makeSound() -- FAIL attempt to index a nil value (local 'self')
 

@@ -1,6 +1,6 @@
 -- While
 
-num = 10
+local num = 10
 
 while num < 20 do
 	num = num + 1

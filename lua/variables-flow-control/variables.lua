@@ -1,7 +1,7 @@
 -- Variables
 
-foo = anUnknownVariable -- now foo = nil
-aBoolValue = false
+local foo = anUnknownVariable -- now foo = nil
+local aBoolValue = false
 
 print(foo, aBoolValue)
 
@@ -13,5 +13,5 @@ end
 if not aBoolValue then print('was false') end
 
 -- simir to the a ? b : c
-ans = aBoolValue and 'yes' or 'no'
+local ans = aBoolValue and 'yes' or 'no'
 print(ans)
