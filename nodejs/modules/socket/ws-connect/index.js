@@ -21,4 +21,4 @@ wsServer.on("connection", function(ws) {
   })
 })
 
-server.listen(PORT, console.log(`socket running at ${PORT}`))
+server.listen(PORT, console.log(`server running at ${PORT}`))
