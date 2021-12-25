@@ -17,14 +17,27 @@ if (cluster.isMaster) {
     console.log('Workers forking succeed')
   })
 
+  // cluster.on('exit', (worker, code, signal) => {
+  //   const exitCode = worker.process.exitCode
+  //   console.log(`Worker ${process.pid} died`)
+  // })
+
+  cluster.on('exit', (worker, code, signal) => {
+    let crash = true
+
+    if (crash) {
+      console.log('Restarting the Worker')
+      cluster.fork()
+    }
+  })
+
   for (let i = 0; i < numCPUs; i++) {
     console.log('forking')
     cluster.fork()
   }
 
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`Worker ${process.pid} died`)
-  })
+  // cluster.disconnect(() => console.log('All workers was disconnected'))
+
 
 } else {
   http
