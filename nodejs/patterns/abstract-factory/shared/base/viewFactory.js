@@ -1,9 +1,9 @@
-const NotImplementedException = require('../exceptions/notImplementedException')
+const NotImplementedException = require('../exceptions/notImplementedException');
 
 class ViewFactory {
   createTable() {
-    throw new NotImplementedException(this.createTable.name)
+    throw new NotImplementedException(this.createTable.name);
   }
-}
+};
 
-module.exports = ViewFactory
+module.exports = ViewFactory;

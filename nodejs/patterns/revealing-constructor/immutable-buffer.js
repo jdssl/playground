@@ -1,21 +1,21 @@
-const { Buffer } = require('buffer')
+const { Buffer } = require('buffer');
 
-const MODIFIER_NAMES = ['swap', 'write', 'fill']
+const MODIFIER_NAMES = ['swap', 'write', 'fill'];
 
 module.exports = class ImmutableBuffer {
   constructor (size, executor) {
-    const buffer = Buffer.alloc(size)
-    const modifiers = {}
+    const buffer = Buffer.alloc(size);
+    const modifiers = {};
     for (const prop in buffer) {
       if (typeof buffer[prop] !== 'function') {
-        continue
+        continue;
       }
       if (MODIFIER_NAMES.some(m => prop.startsWith(m))) {
-        modifiers[prop] = buffer[prop].bind(buffer)
+        modifiers[prop] = buffer[prop].bind(buffer);
       } else {
-        this[prop] = buffer[prop].bind(buffer)
+        this[prop] = buffer[prop].bind(buffer);
       }
     }
-    executor(modifiers)
-  }
-}
+    executor(modifiers);
+  };
+};

@@ -1,30 +1,30 @@
-'use strict'
+'use strict';
 
-const http = require('http')
-const cluster = require('cluster')
-const numCPUs = require('os').cpus().length
-let worker
+const http = require('http');
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+let worker;
 
-const PORT = 3000
+const PORT = 3000;
 
 if (cluster.isMaster) {
   for (let i = 0; i < numCPUs; i++) {
-    worker = cluster.fork()
+    worker = cluster.fork();
 
-    worker.on('online', () => console.log(`Worker ${worker.id} is online`))
+    worker.on('online', () => console.log(`Worker ${worker.id} is online`));
 
-    worker.on('disconnect', () => console.log(`Worker ${worker.id} was disconnected`))
+    worker.on('disconnect', () => console.log(`Worker ${worker.id} was disconnected`));
 
-    worker.on('exit', () => console.log(`Worker ${worker.id} was exited`))
+    worker.on('exit', () => console.log(`Worker ${worker.id} was exited`));
 
-    worker.disconnect()
+    worker.disconnect();
   }
 } else {
   http
   .createServer((req, res) => {
-    res.writeHead(200)
-    res.end('Hi balu')
+    res.writeHead(200);
+    res.end('Hi balu');
   })
-  .listen(PORT, console.log(`server running at ${PORT}`))
+  .listen(PORT, console.log(`server running at ${PORT}`));
 }
 

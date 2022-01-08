@@ -1,7 +1,7 @@
-const ViewFactory = require('../shared/base/ViewFactory')
+const ViewFactory = require('../shared/base/ViewFactory');
 
 class useViewFactory extends ViewFactory {
 
-}
+};
 
-module.exports = useViewFactory
+module.exports = useViewFactory;

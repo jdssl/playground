@@ -1,8 +1,8 @@
-const useViewFactory = require('./case/useViewFactory')
+const useViewFactory = require('./case/useViewFactory');
 
 ;(() => {
-  const viewFactory = new useViewFactory()
-  viewFactory.createTable()
+  const viewFactory = new useViewFactory();
+  viewFactory.createTable();
   /**
     /Users/jonatanlima/dev/playground/nodejs/patterns/abstract-factory/shared/base/ViewFactory.js:5
     throw new NotImplementedException(this.createTable.name)
@@ -19,4 +19,4 @@ const useViewFactory = require('./case/useViewFactory')
         at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
         at node:internal/main/run_main_module:17:47
     **/
-})()
+})();

@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const config = require('./config')
+const config = require('./config');
 
 const knex = require('knex')({
   client: 'pg',
@@ -13,10 +13,10 @@ const knex = require('knex')({
   migrations: {
     tableName: 'migrations'
   }
-})
+});
 
 const result = knex('persons')
   .select()
-  .toSQL()
+  .toSQL();
 
-console.log(result)
+console.log(result);
