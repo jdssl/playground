@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const foo = function () {
 	let a = 3, b = 5;
@@ -7,9 +7,9 @@ const foo = function () {
 
 		a += b + c; // b is 7 and c is 11
 		// 3 + 7 + 11
-	}
-	bar()
+	};
+	bar();
 	// a is 21 and b is 5
 }
 
-foo()
+foo();

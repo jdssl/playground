@@ -1,13 +1,13 @@
-'use strict'
+'use strict';
 
 const myClosure = function (a, b) {
 
 	function sum(a, b) {
-		return a + b
+		return a + b;
 	}
 
 	function squareArea(side) {
-		return side * side
+		return side * side;
 	}
 
 	return {
@@ -16,5 +16,5 @@ const myClosure = function (a, b) {
 }
 
 
-myClosure().squareArea(4) // 16
-myClosure().sum(1, 2) // TypeError: myClosure().sum is not a function
+myClosure().squareArea(4); // 16
+myClosure().sum(1, 2); // TypeError: myClosure().sum is not a function
