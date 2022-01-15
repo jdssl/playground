@@ -16,7 +16,8 @@ fn render_articles(articles: &Vec<Article>) {
     }
 }
 
-fn main() -> Result<(), Box<dyn Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
     dotenv().ok();
 
     let api_key = env::var("NEWSAPI_KEY").expect("NEWSAPI_KEY must be set");
@@ -26,7 +27,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         .endpoint(Endpoint::TopHeadlines)
         .country(Country::Us);
 
-    let newsapi_response = newsapi.fetch()?;
+    // let newsapi_response = newsapi.fetch()?;
+    let newsapi_response = newsapi.fetch_async().await?;
 
     render_articles(&newsapi_response.articles());
 
