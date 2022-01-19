@@ -1,80 +1,14 @@
+mod headlines;
+
 use eframe::{
     egui::{
-        CentralPanel, Color32, CtxRef, FontDefinitions, FontFamily, Hyperlink, Label, Layout,
-        ScrollArea, Separator, Vec2,
+        CentralPanel, CtxRef, Hyperlink, Label, ScrollArea, Separator, TextStyle, TopBottomPanel,
+        Ui, Vec2,
     },
     epi::App,
     run_native, NativeOptions,
 };
-use std::borrow::Cow;
-
-const PADDING: f32 = 5.0;
-const WHITE: Color32 = Color32::from_rgb(255, 255, 255);
-const CYAN: Color32 = Color32::from_rgb(0, 255, 255);
-
-struct Headlines {
-    articles: Vec<NewsCardData>,
-}
-
-impl Headlines {
-    fn new() -> Headlines {
-        let iter = (0..20).map(|a| NewsCardData {
-            title: format!("title{}", a),
-            description: format!("desc{}", a),
-            url: format!("https://example.com/{}", a),
-        });
-        Headlines {
-            articles: Vec::from_iter(iter),
-        }
-    }
-
-    fn configure_fonts(&self, ctx: &CtxRef) {
-        let mut font_def = FontDefinitions::default();
-        font_def.font_data.insert(
-            "MesloLGS".to_string(),
-            Cow::Borrowed(include_bytes!("../../MesloLGS_NF_Regular.ttf")),
-        );
-        font_def.family_and_size.insert(
-            eframe::egui::TextStyle::Heading,
-            (FontFamily::Proportional, 35.),
-        );
-        font_def.family_and_size.insert(
-            eframe::egui::TextStyle::Body,
-            (FontFamily::Proportional, 20.),
-        );
-        font_def
-            .fonts_for_family
-            .get_mut(&FontFamily::Proportional)
-            .unwrap()
-            .insert(0, "MesloLGS".to_string());
-        ctx.set_fonts(font_def);
-    }
-
-    fn render_news_cards(&self, ui: &mut eframe::egui::Ui) {
-        for a in &self.articles {
-            ui.add_space(PADDING);
-            let title = format!("▶ {}", a.title);
-            ui.colored_label(WHITE, title);
-            ui.add_space(PADDING);
-            let desc = Label::new(&a.description).text_style(eframe::egui::TextStyle::Button);
-            ui.add(desc);
-
-            ui.style_mut().visuals.hyperlink_color = CYAN;
-            ui.add_space(PADDING);
-            ui.with_layout(Layout::right_to_left(), |ui| {
-                ui.add(Hyperlink::new(&a.url).text("read more ⤴"));
-            });
-            ui.add_space(PADDING);
-            ui.add(Separator::default());
-        }
-    }
-}
-
-struct NewsCardData {
-    title: String,
-    description: String,
-    url: String,
-}
+use headlines::{Headlines, PADDING};
 
 impl App for Headlines {
     fn setup(
@@ -86,17 +20,49 @@ impl App for Headlines {
         self.configure_fonts(ctx);
     }
 
-    fn update(&mut self, ctx: &eframe::egui::CtxRef, _frame: &mut eframe::epi::Frame<'_>) {
+    fn update(&mut self, ctx: &eframe::egui::CtxRef, frame: &mut eframe::epi::Frame<'_>) {
+        self.render_top_panel(ctx);
         CentralPanel::default().show(ctx, |ui| {
+            render_header(ui);
             ScrollArea::auto_sized().show(ui, |ui| {
                 self.render_news_cards(ui);
-            })
+            });
+            render_footer(ctx);
         });
     }
 
     fn name(&self) -> &str {
         "Headlines"
     }
+}
+
+fn render_footer(ctx: &CtxRef) {
+    TopBottomPanel::bottom("footer").show(ctx, |ui| {
+        ui.vertical_centered(|ui| {
+            ui.add_space(10.);
+            ui.add(Label::new("API source: newsapi.org").monospace());
+            ui.add(
+                Hyperlink::new("https://github.com/emilk/egui")
+                    .text("Made with egui")
+                    .text_style(TextStyle::Monospace),
+            );
+            ui.add(
+                Hyperlink::new("https://github.com/creativcoder/headlines")
+                    .text("creativcoder/headlines")
+                    .text_style(TextStyle::Monospace),
+            );
+            ui.add_space(10.);
+        })
+    });
+}
+
+fn render_header(ui: &mut Ui) {
+    ui.vertical_centered(|ui| {
+        ui.heading("headlines");
+    });
+    ui.add_space(PADDING);
+    let sep = Separator::default().spacing(20.);
+    ui.add(sep);
 }
 
 fn main() {
