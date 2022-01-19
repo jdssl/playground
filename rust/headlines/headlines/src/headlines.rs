@@ -9,8 +9,19 @@ pub const PADDING: f32 = 5.0;
 const WHITE: Color32 = Color32::from_rgb(255, 255, 255);
 const CYAN: Color32 = Color32::from_rgb(0, 255, 255);
 
+pub struct HeadlinesConfig {
+    pub dark_mode: bool,
+}
+
+impl HeadlinesConfig {
+    fn new() -> Self {
+        Self { dark_mode: true }
+    }
+}
+
 pub struct Headlines {
     articles: Vec<NewsCardData>,
+    pub config: HeadlinesConfig,
 }
 
 struct NewsCardData {
@@ -28,6 +39,7 @@ impl Headlines {
         });
         Headlines {
             articles: Vec::from_iter(iter),
+            config: HeadlinesConfig::new(),
         }
     }
 
@@ -72,7 +84,7 @@ impl Headlines {
         }
     }
 
-    pub(crate) fn render_top_panel(&self, ctx: &CtxRef) {
+    pub(crate) fn render_top_panel(&mut self, ctx: &CtxRef, frame: &mut eframe::epi::Frame<'_>) {
         TopBottomPanel::top("top_panel").show(ctx, |ui| {
             ui.add_space(10.);
             egui::menu::bar(ui, |ui| {
@@ -81,8 +93,23 @@ impl Headlines {
                 });
                 ui.with_layout(Layout::right_to_left(), |ui| {
                     let close_btn = ui.add(Button::new("❌").text_style(egui::TextStyle::Body));
+                    if close_btn.clicked() {
+                        frame.quit();
+                    }
                     let refresh_btn = ui.add(Button::new("🔄").text_style(egui::TextStyle::Body));
-                    let theme_btn = ui.add(Button::new("🌙").text_style(egui::TextStyle::Body));
+                    let theme_btn = ui.add(
+                        Button::new({
+                            if self.config.dark_mode {
+                                "🌞"
+                            } else {
+                                "🌙"
+                            }
+                        })
+                        .text_style(egui::TextStyle::Body),
+                    );
+                    if theme_btn.clicked() {
+                        self.config.dark_mode = !self.config.dark_mode;
+                    }
                 });
             });
             ui.add_space(10.);
