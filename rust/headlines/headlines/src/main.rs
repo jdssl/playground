@@ -1,4 +1,8 @@
-use eframe::{egui::CentralPanel, epi::App, run_native, NativeOptions};
+use eframe::{
+    egui::{CentralPanel, ScrollArea, Vec2},
+    epi::App,
+    run_native, NativeOptions,
+};
 
 struct Headlines {
     articles: Vec<NewsCardData>,
@@ -26,11 +30,13 @@ struct NewsCardData {
 impl App for Headlines {
     fn update(&mut self, ctx: &eframe::egui::CtxRef, _frame: &mut eframe::epi::Frame<'_>) {
         CentralPanel::default().show(ctx, |ui| {
-            for a in &self.articles {
-                ui.label(&a.title);
-                ui.label(&a.url);
-                ui.label(&a.description);
-            }
+            ScrollArea::auto_sized().show(ui, |ui| {
+                for a in &self.articles {
+                    ui.label(&a.title);
+                    ui.label(&a.url);
+                    ui.label(&a.description);
+                }
+            })
         });
     }
 
@@ -41,6 +47,7 @@ impl App for Headlines {
 
 fn main() {
     let app = Headlines::new();
-    let win_option = NativeOptions::default();
+    let mut win_option = NativeOptions::default();
+    win_option.initial_window_size = Some(Vec2::new(540., 960.));
     run_native(Box::new(app), win_option);
 }
