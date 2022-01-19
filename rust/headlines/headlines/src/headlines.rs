@@ -8,6 +8,8 @@ use std::{borrow::Cow, iter::FromIterator};
 pub const PADDING: f32 = 5.0;
 const WHITE: Color32 = Color32::from_rgb(255, 255, 255);
 const CYAN: Color32 = Color32::from_rgb(0, 255, 255);
+const BLACK: Color32 = Color32::from_rgb(0, 0, 0);
+const RED: Color32 = Color32::from_rgb(255, 0, 0);
 
 pub struct HeadlinesConfig {
     pub dark_mode: bool,
@@ -68,13 +70,25 @@ impl Headlines {
     pub fn render_news_cards(&self, ui: &mut eframe::egui::Ui) {
         for a in &self.articles {
             ui.add_space(PADDING);
+
             let title = format!("▶ {}", a.title);
-            ui.colored_label(WHITE, title);
+            if self.config.dark_mode {
+                ui.colored_label(WHITE, title);
+            } else {
+                ui.colored_label(BLACK, title);
+            }
+
             ui.add_space(PADDING);
+
             let desc = Label::new(&a.description).text_style(eframe::egui::TextStyle::Button);
             ui.add(desc);
 
-            ui.style_mut().visuals.hyperlink_color = CYAN;
+            if self.config.dark_mode {
+                ui.style_mut().visuals.hyperlink_color = CYAN;
+            } else {
+                ui.style_mut().visuals.hyperlink_color = RED;
+            }
+
             ui.add_space(PADDING);
             ui.with_layout(Layout::right_to_left(), |ui| {
                 ui.add(Hyperlink::new(&a.url).text("read more ⤴"));
