@@ -1,8 +1,9 @@
 use eframe::{
-    egui::{CentralPanel, ScrollArea, Vec2},
+    egui::{CentralPanel, CtxRef, FontDefinitions, FontFamily, ScrollArea, Vec2},
     epi::App,
     run_native, NativeOptions,
 };
+use std::borrow::Cow;
 
 struct Headlines {
     articles: Vec<NewsCardData>,
@@ -19,6 +20,28 @@ impl Headlines {
             articles: Vec::from_iter(iter),
         }
     }
+
+    fn configure_fonts(&self, ctx: &CtxRef) {
+        let mut font_def = FontDefinitions::default();
+        font_def.font_data.insert(
+            "MesloLGS".to_string(),
+            Cow::Borrowed(include_bytes!("../../MesloLGS_NF_Regular.ttf")),
+        );
+        font_def.family_and_size.insert(
+            eframe::egui::TextStyle::Heading,
+            (FontFamily::Proportional, 35.),
+        );
+        font_def.family_and_size.insert(
+            eframe::egui::TextStyle::Body,
+            (FontFamily::Proportional, 20.),
+        );
+        font_def
+            .fonts_for_family
+            .get_mut(&FontFamily::Proportional)
+            .unwrap()
+            .insert(0, "MesloLGS".to_string());
+        ctx.set_fonts(font_def);
+    }
 }
 
 struct NewsCardData {
@@ -28,6 +51,15 @@ struct NewsCardData {
 }
 
 impl App for Headlines {
+    fn setup(
+        &mut self,
+        ctx: &eframe::egui::CtxRef,
+        _frame: &mut eframe::epi::Frame<'_>,
+        _storage: Option<&dyn eframe::epi::Storage>,
+    ) {
+        self.configure_fonts(ctx);
+    }
+
     fn update(&mut self, ctx: &eframe::egui::CtxRef, _frame: &mut eframe::epi::Frame<'_>) {
         CentralPanel::default().show(ctx, |ui| {
             ScrollArea::auto_sized().show(ui, |ui| {
