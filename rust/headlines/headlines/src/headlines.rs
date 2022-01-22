@@ -1,6 +1,6 @@
 use eframe::egui::{
     self, Button, Color32, CtxRef, FontDefinitions, FontFamily, Hyperlink, Label, Layout,
-    Separator, TopBottomPanel,
+    Separator, TopBottomPanel, Ui, Window,
 };
 use serde::{Deserialize, Serialize};
 use std::{borrow::Cow, iter::FromIterator};
@@ -14,25 +14,22 @@ const RED: Color32 = Color32::from_rgb(255, 0, 0);
 #[derive(Serialize, Deserialize)]
 pub struct HeadlinesConfig {
     pub dark_mode: bool,
+    pub api_key: String,
 }
 
 impl Default for HeadlinesConfig {
     fn default() -> Self {
         Self {
             dark_mode: Default::default(),
+            api_key: String::new(),
         }
-    }
-}
-
-impl HeadlinesConfig {
-    fn new() -> Self {
-        Self { dark_mode: true }
     }
 }
 
 pub struct Headlines {
     articles: Vec<NewsCardData>,
     pub config: HeadlinesConfig,
+    pub api_key_initialized: bool,
 }
 
 struct NewsCardData {
@@ -54,6 +51,7 @@ impl Headlines {
         Headlines {
             articles: Vec::from_iter(iter),
             config,
+            api_key_initialized: false,
         }
     }
 
@@ -139,6 +137,32 @@ impl Headlines {
                 });
             });
             ui.add_space(10.);
+        });
+    }
+
+    pub fn render_config(&mut self, ctx: &CtxRef) {
+        Window::new("Configuration").show(ctx, |ui: &mut Ui| {
+            ui.label("Enter you API_KEY for newsapi.org");
+            let text_input = ui.text_edit_singleline(&mut self.config.api_key);
+            if text_input.lost_focus() && ui.input().key_pressed(egui::Key::Enter) {
+                if let Err(e) = confy::store(
+                    "headlines",
+                    HeadlinesConfig {
+                        dark_mode: self.config.dark_mode,
+                        api_key: self.config.api_key.to_string(),
+                    },
+                ) {
+                    tracing::error!("Failed saving app state: {}", e);
+                };
+
+                self.api_key_initialized = true;
+
+                tracing::error!("api key set");
+            }
+
+            tracing::error!("{}", &self.config.api_key);
+            ui.label("If you havn't registered for the API_KEY, head over to");
+            ui.hyperlink("https://newsapi.org");
         });
     }
 }
