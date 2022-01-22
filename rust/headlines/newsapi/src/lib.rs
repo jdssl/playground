@@ -1,9 +1,9 @@
-use dotenv::dotenv;
 #[cfg(feature = "async")]
 use reqwest::Method;
 use serde::Deserialize;
-use std::env;
 use url::Url;
+
+const BASE_URL: &str = "https://newsapi.org/v2";
 
 #[derive(thiserror::Error, Debug)]
 pub enum NewsApiError {
@@ -11,7 +11,7 @@ pub enum NewsApiError {
     RequestFailed(#[from] ureq::Error),
     #[error("Failed converting response to string")]
     FailedResponseToString(#[from] std::io::Error),
-    #[error("Article parsing failed")]
+    #[error("Article Parsing failed")]
     ArticleParseFailed(#[from] serde_json::Error),
     #[error("Url parsing failed")]
     UrlParsing(#[from] url::ParseError),
@@ -19,14 +19,14 @@ pub enum NewsApiError {
     BadRequest(&'static str),
     #[error("Async request failed")]
     #[cfg(feature = "async")]
-    AsyncRequestFailed(#[from] reqwest::Error),
+    AsyncRequestFailed(#[from] reqwest::Error)
 }
 
 #[derive(Deserialize, Debug)]
 pub struct NewsAPIResponse {
     status: String,
+    articles: Vec<Article>,
     code: Option<String>,
-    pub articles: Vec<Article>,
 }
 
 impl NewsAPIResponse {
@@ -39,6 +39,7 @@ impl NewsAPIResponse {
 pub struct Article {
     title: String,
     url: String,
+    description: Option<String>
 }
 
 impl Article {
@@ -48,6 +49,10 @@ impl Article {
 
     pub fn url(&self) -> &str {
         &self.url
+    }
+
+    pub fn desc(&self) -> Option<&String> {
+        self.description.as_ref()
     }
 }
 
@@ -101,11 +106,7 @@ impl NewsAPI {
     }
 
     fn prepare_url(&self) -> Result<String, NewsApiError> {
-        dotenv().ok();
-
-        let BASE_URL = env::var("BASE_URL").expect("BASE_URL must be set");
-
-        let mut url = Url::parse(&BASE_URL)?;
+        let mut url = Url::parse(BASE_URL)?;
         url.path_segments_mut()
             .unwrap()
             .push(&self.endpoint.to_string());
@@ -120,7 +121,6 @@ impl NewsAPI {
         let url = self.prepare_url()?;
         let req = ureq::get(&url).set("Authorization", &self.api_key);
         let response: NewsAPIResponse = req.call()?.into_json()?;
-
         match response.status.as_str() {
             "ok" => return Ok(response),
             _ => return Err(map_response_err(response.code)),
@@ -136,6 +136,7 @@ impl NewsAPI {
             .header("Authorization", &self.api_key)
             .build()
             .map_err(|e| NewsApiError::AsyncRequestFailed(e))?;
+
         let response: NewsAPIResponse = client
             .execute(request)
             .await?
