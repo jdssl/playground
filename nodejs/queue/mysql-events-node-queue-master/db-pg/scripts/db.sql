@@ -1,0 +1,8 @@
+CREATE TABLE subscribers (
+  subscriber_id serial PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  age INT NOT NULL,
+  status INT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+)

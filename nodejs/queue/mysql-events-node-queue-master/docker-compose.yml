@@ -1,0 +1,225 @@
+version: '3'
+services:
+  api-triggers:
+    depends_on:
+      - db-prod-foo
+      - db-prod-bar
+      - db-audit-foo
+      - db-audit-bar
+      - redis
+    networks:
+      - network-prod
+    build: ./api-triggers
+    restart: always
+    container_name: api-triggers
+    command: run dev
+    environment:
+      API_TRIGGERS_PORT: 3000
+      API_TRIGGERS_DB_MYSQL_FOO_HOST: db-prod-foo
+      API_TRIGGERS_DB_MYSQL_FOO_USER: root
+      API_TRIGGERS_DB_MYSQL_FOO_PASSWORD: 123456
+      API_TRIGGERS_DB_MYSQL_FOO_DATABASE: company
+      API_TRIGGERS_DB_MYSQL_BAR_HOST: db-prod-bar
+      API_TRIGGERS_DB_MYSQL_BAR_USER: root
+      API_TRIGGERS_DB_MYSQL_BAR_PASSWORD: 123456
+      API_TRIGGERS_DB_MYSQL_BAR_DATABASE: company
+      API_TRIGGERS_DB_MYSQL_AUDIT_FOO_HOST: db-audit-foo
+      API_TRIGGERS_DB_MYSQL_AUDIT_FOO_USER: root
+      API_TRIGGERS_DB_MYSQL_AUDIT_FOO_PASSWORD: 123456
+      API_TRIGGERS_DB_MYSQL_AUDIT_FOO_DATABASE: audit-foo
+      API_TRIGGERS_DB_MYSQL_AUDIT_BAR_HOST: db-audit-bar
+      API_TRIGGERS_DB_MYSQL_AUDIT_BAR_USER: root
+      API_TRIGGERS_DB_MYSQL_AUDIT_BAR_PASSWORD: 123456
+      API_TRIGGERS_DB_MYSQL_AUDIT_BAR_DATABASE: audit-bar
+      API_TRIGGERS_API_HOOKS_URL: api-hooks
+    volumes:
+      - ./api-triggers:/home/app/api-triggers
+    ports:
+      - 3000:3000
+    tty: true
+
+  queue-foo:
+    depends_on:
+      - api-triggers
+      - redis
+      - db-prod-foo
+      - db-prod-bar
+    networks:
+      - network-prod
+    build: ./api-triggers
+    restart: always
+    container_name: queue-foo
+    command: run queue:foo
+    environment:
+      API_TRIGGERS_API_HOOKS_URL: api-hooks
+    volumes:
+      - ./api-triggers:/home/app/api-triggers
+    tty: true
+
+  queue-bar:
+    depends_on:
+      - api-triggers
+      - redis
+      - db-prod-foo
+      - db-prod-bar
+    networks:
+      - network-prod
+    build: ./api-triggers
+    restart: always
+    container_name: queue-bar
+    command: run queue:bar
+    environment:
+      API_TRIGGERS_API_HOOKS_URL: api-hooks
+    volumes:
+      - ./api-triggers:/home/app/api-triggers
+    tty: true
+
+  api-db-prod:
+    depends_on:
+      - db-prod-foo
+      - db-prod-bar
+    networks:
+      - network-prod
+    build: ./api-db-prod
+    command: run dev
+    restart: always
+    container_name: api-db-prod
+    environment:
+      API_DB_PROD_PORT: 3600
+      API_DB_PROD_MYSQL_FOO_HOST: db-prod-foo
+      API_DB_PROD_MYSQL_FOO_USER: root
+      API_DB_PROD_MYSQL_FOO_PASSWORD: 123456
+      API_DB_PROD_MYSQL_FOO_DATABASE: company
+      API_DB_PROD_MYSQL_BAR_HOST: db-prod-bar
+      API_DB_PROD_MYSQL_BAR_USER: root
+      API_DB_PROD_MYSQL_BAR_PASSWORD: 123456
+      API_DB_PROD_MYSQL_BAR_DATABASE: company
+    volumes:
+      - ./api-db-prod:/home/app/api-db-prod
+    ports:
+      - 3600:3600
+    tty: true
+
+  api-hooks:
+    depends_on:
+      - db-hooks
+    networks:
+      - network-prod
+    build: ./api-hooks
+    command: run dev
+    restart: always
+    container_name: api-hooks
+    environment:
+      API_HOOKS_PORT: 3500
+      API_HOOKS_DB_HOOK_HOST: db-hooks
+      API_HOOKS_DB_HOOK_USER: root
+      API_HOOKS_DB_HOOK_PASSWORD: 123456
+      API_HOOKS_DB_HOOK_DATABASE: company_audit 
+    volumes:
+      - ./api-hooks:/home/app/api-hooks
+    ports:
+      - 3500:3500
+    tty: true
+
+  db-prod-foo:
+    build: ./db-prod-foo
+    restart: always
+    container_name: db-prod-foo
+    volumes:
+      - db-prod-foo-data:/var/lib/mysql
+      - ./db-prod-foo/configs:/etc/mysql/conf.d
+    ports:
+      - 3306:3306
+    networks:
+      - network-prod
+
+  db-prod-bar:
+    build: ./db-prod-bar
+    restart: always
+    container_name: db-prod-bar
+    volumes:
+      - db-prod-bar-data:/var/lib/mysql
+      - ./db-prod-bar/configs:/etc/mysql/conf.d
+    ports:
+      - 3307:3306
+    networks:
+      - network-prod
+
+  db-hooks:
+    build: ./db-hooks
+    restart: always
+    container_name: db-hooks
+    volumes:
+      - db-hooks-data:/var/lib/mysql
+    ports:
+      - 3308:3306
+    networks:
+      - network-prod
+
+  db-audit-foo:
+    build: ./db-audit-foo
+    restart: always
+    container_name: db-audit-foo
+    volumes:
+      - db-audit-foo-data:/var/lib/mysql
+    ports:
+      - 3309:3306
+    networks:
+      - network-prod
+
+  db-audit-bar:
+    build: ./db-audit-bar
+    restart: always
+    container_name: db-audit-bar
+    volumes:
+      - db-audit-bar-data:/var/lib/mysql
+    ports:
+      - 3310:3306
+    networks:
+      - network-prod
+
+  db-pg:
+    build: ./db-pg
+    restart: always
+    container_name: db-pg
+    volumes:
+      - ./db-pg/scripts/db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./db-pg/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - network-prod
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - network-prod
+
+  redis:
+    image: redis
+    container_name: redis
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+    networks:
+      - network-prod
+
+volumes:
+  postgres-data:
+  db-audit-foo-data:
+    driver: local
+  db-audit-bar-data:
+    driver: local
+  db-prod-foo-data:
+    driver: local
+  db-prod-bar-data:
+    driver: local
+  db-hooks-data:
+    driver: local
+  db-pg-data:
+    driver: local
+
+networks:
+  network-prod:
+    driver: bridge
+

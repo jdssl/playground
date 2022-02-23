@@ -1,0 +1,18 @@
+{
+  "name": "api-mysql-db-prod",
+  "version": "1.0.0",
+  "description": "A API for insert/update/delete data in mysql-db-prod.",
+  "main": "server.js",
+  "scripts": {
+    "start": "DEBUG=api-db-prod:* node server.js",
+    "dev": "DEBUG=api-db-prod:* nodemon server.js"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
