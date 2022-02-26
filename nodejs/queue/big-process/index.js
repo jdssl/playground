@@ -9,9 +9,7 @@ async function bigProcess() {
 
     const { pathname: currentFile } = new URL(import.meta.url);
     const cwd = path.dirname(currentFile)
-    const subProc = path.join(cwd, 'sub-process.js')
 
-    console.log(subProc)
     const proc = spawn('node', [
       path.resolve(cwd, 'sub-process.js')
     ])
