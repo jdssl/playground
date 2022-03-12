@@ -1,5 +1,5 @@
 import http from 'http'
-import logger from './../helpers/logger.js'
+import logger from './../common/helpers/logger.js'
 
 const routes = {
   '/data:get': (req, res) => {
