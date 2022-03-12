@@ -1,3 +1,5 @@
+'use strict'
+
 import express from 'express'
 import logger from './../common/helpers/logger.js'
 
