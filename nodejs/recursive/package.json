@@ -6,13 +6,14 @@
   "type": "module",
   "scripts": {
     "server": "node ./server/index.js | pino-pretty",
-    "run": "node --experimental-fetch ./scripts/run.js",
+    "run": "node ./scripts/run.js | pino-pretty",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
     "pino": "6.8",
     "pino-pretty": "5.1"
   }

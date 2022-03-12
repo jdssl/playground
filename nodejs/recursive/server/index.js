@@ -3,7 +3,9 @@ import logger from './../common/helpers/logger.js'
 
 const routes = {
   '/data:get': (req, res) => {
-    res.writeHead(200)
+    res.writeHead(200, {
+      'x-ratelimit-reset': new Date().getTime()
+    })
     res.write('data')
     res.end()
   },
