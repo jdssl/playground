@@ -6,7 +6,8 @@ import logger from './../common/helpers/logger.js'
 const PORT = 1203
 const app = express()
 
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/data', (req, res) => {
   res.set({
@@ -14,6 +15,10 @@ app.get('/data', (req, res) => {
   })
 
   res.json({ message: 'data' })
+})
+
+app.post('/data', (req, res) => {
+  res.json(req.body)
 })
 
 app.all('*', (req, res) => {

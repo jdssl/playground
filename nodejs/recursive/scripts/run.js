@@ -3,19 +3,26 @@
 import axios from 'axios'
 
 import logger from './../common/helpers/logger.js'
-import { sleep } from './../common/helpers/sleep.js'
+
+const URL = 'http://localhost:1203'
 
 async function getData(id, name) {
-  console.log(id, name)
-  return axios.get('http://localhost:1203/data')
+  logger.info(`${id}, ${name}`)
+  return axios.get(`${URL}/data`)
 }
 
+async function postData(body) {
+  console.log(body)
+  return axios.post(`${URL}/data`, JSON.stringify(body))
+}
 
+async function recursiveFn(params, callback, tries = 3) {
+  const res = await callback.apply(this, params)
+  logger.info(res.data)
+}
 
 ;(async () => {
-  const res = await getData(1, 'balu')
-  logger.info(res.data)
-  logger.info(res.headers['x-ratelimit-reset'])
-
-
+  const body =[{ name: 'Balu', age: 27 }]
+  await recursiveFn([1, 'balu'], getData)
+  await recursiveFn(body, postData)
 })()
