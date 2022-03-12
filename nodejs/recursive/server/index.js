@@ -9,6 +9,11 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next)=> {
+  logger.info(req)
+  next();
+})
+
 app.get('/data', (req, res) => {
   res.set({
     'x-ratelimit-reset': new Date().getTime()
