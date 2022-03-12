@@ -1,0 +1,584 @@
+Script started on Sat Mar 12 07:36:03 2022
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hcc[90murl localhost:1203/data[39m[23Dc[39md[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [22D[90m ..[39m[39m [39ms[39m [90merver[39m[39mc[39m [39m [39m [39m ripts[1m/[0m[0m [?1l>[?2004l
+kcd\[1m[3m%[23m[1m[0m                                                                            k..rsive/scripts\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/scripts/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mvm list[39mn[39m [39m [39m [39m [39m [39m [39m [90m-v[39m[39mr[39m un.js[1m [0m[0m [?1l>[?2004l
+kn\file:///Users/jonatanlima/dev/playground/nodejs/recursive/scripts/run.js:1
+const res = await fetch('https://dog.ceo/api/breeds/list/all');
+            ^
+
+ReferenceError: fetch is not defined
+    at file:///Users/jonatanlima/dev/playground/nodejs/recursive/scripts/run.js:1:13
+[90m    at ModuleJob.run (node:internal/modules/esm/module_job:197:25)[39m
+    at async Promise.all (index 0)
+[90m    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)[39m
+[90m    at async loadESM (node:internal/process/esm_loader:88:5)[39m
+[90m    at async handleMainPromise (node:internal/modules/run_main:61:12)[39m
+
+Node.js v17.5.0
+[1m[3m%[23m[1m[0m                                                                            k..rsive/scripts\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/scripts/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90m run.js[39mn[39m - [39m [39m [39m [39m [39m [39m --experimental-fetch[20Dn [3m-[3m-[3me[3mx[3mp[3me[3mr[3mi[3mm[3me[3mn[3mt[3ma[3ml[3m-[3mf[3me[3mt[3mch[23m[20D[23m-[23m-[23me[23mx[23mp[23me[23mr[23mi[23mm[23me[23mn[23mt[23ma[23ml[23m-[23mf[23me[23mt[23mc[23mh[90mr[90mu[90mn.js[39m[KM[70C[39m  [Krrun.js[1m [0m[0m [?1l>[?2004l
+kn\(node:24484) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  message: {
+    affenpinscher: [],
+    african: [],
+    airedale: [],
+    akita: [],
+    appenzeller: [],
+    australian: [ [32m'shepherd'[39m ],
+    basenji: [],
+    beagle: [],
+    bluetick: [],
+    borzoi: [],
+    bouvier: [],
+    boxer: [],
+    brabancon: [],
+    briard: [],
+    buhund: [ [32m'norwegian'[39m ],
+    bulldog: [ [32m'boston'[39m, [32m'english'[39m, [32m'french'[39m ],
+    bullterrier: [ [32m'staffordshire'[39m ],
+    cattledog: [ [32m'australian'[39m ],
+    chihuahua: [],
+    chow: [],
+    clumber: [],
+    cockapoo: [],
+    collie: [ [32m'border'[39m ],
+    coonhound: [],
+    corgi: [ [32m'cardigan'[39m ],
+    cotondetulear: [],
+    dachshund: [],
+    dalmatian: [],
+    dane: [ [32m'great'[39m ],
+    deerhound: [ [32m'scottish'[39m ],
+    dhole: [],
+    dingo: [],
+    doberman: [],
+    elkhound: [ [32m'norwegian'[39m ],
+    entlebucher: [],
+    eskimo: [],
+    finnish: [ [32m'lapphund'[39m ],
+    frise: [ [32m'bichon'[39m ],
+    germanshepherd: [],
+    greyhound: [ [32m'italian'[39m ],
+    groenendael: [],
+    havanese: [],
+    hound: [
+      [32m'afghan'[39m, [32m'basset'[39m,
+      [32m'blood'[39m,  [32m'english'[39m,
+      [32m'ibizan'[39m, [32m'plott'[39m,
+      [32m'walker'[39m
+    ],
+    husky: [],
+    keeshond: [],
+    kelpie: [],
+    komondor: [],
+    kuvasz: [],
+    labradoodle: [],
+    labrador: [],
+    leonberg: [],
+    lhasa: [],
+    malamute: [],
+    malinois: [],
+    maltese: [],
+    mastiff: [ [32m'bull'[39m, [32m'english'[39m, [32m'tibetan'[39m ],
+    mexicanhairless: [],
+    mix: [],
+    mountain: [ [32m'bernese'[39m, [32m'swiss'[39m ],
+    newfoundland: [],
+    otterhound: [],
+    ovcharka: [ [32m'caucasian'[39m ],
+    papillon: [],
+    pekinese: [],
+    pembroke: [],
+    pinscher: [ [32m'miniature'[39m ],
+    pitbull: [],
+    pointer: [ [32m'german'[39m, [32m'germanlonghair'[39m ],
+    pomeranian: [],
+    poodle: [ [32m'miniature'[39m, [32m'standard'[39m, [32m'toy'[39m ],
+    pug: [],
+    puggle: [],
+    pyrenees: [],
+    redbone: [],
+    retriever: [ [32m'chesapeake'[39m, [32m'curly'[39m, [32m'flatcoated'[39m, [32m'golden'[39m ],
+    ridgeback: [ [32m'rhodesian'[39m ],
+    rottweiler: [],
+    saluki: [],
+    samoyed: [],
+    schipperke: [],
+    schnauzer: [ [32m'giant'[39m, [32m'miniature'[39m ],
+    setter: [ [32m'english'[39m, [32m'gordon'[39m, [32m'irish'[39m ],
+    sheepdog: [ [32m'english'[39m, [32m'shetland'[39m ],
+    shiba: [],
+    shihtzu: [],
+    spaniel: [
+      [32m'blenheim'[39m,
+      [32m'brittany'[39m,
+      [32m'cocker'[39m,
+      [32m'irish'[39m,
+      [32m'japanese'[39m,
+      [32m'sussex'[39m,
+      [32m'welsh'[39m
+    ],
+    springer: [ [32m'english'[39m ],
+    stbernard: [],
+    terrier: [
+      [32m'american'[39m,     [32m'australian'[39m,
+      [32m'bedlington'[39m,   [32m'border'[39m,
+      [32m'cairn'[39m,        [32m'dandie'[39m,
+      [32m'fox'[39m,          [32m'irish'[39m,
+      [32m'kerryblue'[39m,    [32m'lakeland'[39m,
+      [32m'norfolk'[39m,      [32m'norwich'[39m,
+      [32m'patterdale'[39m,   [32m'russell'[39m,
+      [32m'scottish'[39m,     [32m'sealyham'[39m,
+      [32m'silky'[39m,        [32m'tibetan'[39m,
+      [32m'toy'[39m,          [32m'welsh'[39m,
+      [32m'westhighland'[39m, [32m'wheaten'[39m,
+      [32m'yorkshire'[39m
+    ],
+    tervuren: [],
+    vizsla: [],
+    waterdog: [ [32m'spanish'[39m ],
+    weimaraner: [],
+    whippet: [],
+    wolfhound: [ [32m'irish'[39m ]
+  },
+  status: [32m'success'[39m
+}
+(node:24484) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+[1m[3m%[23m[1m[0m                                                                            k..rsive/scripts\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/scripts/ [32mmaster*[00m [00m[K[?1h=[?2004h[H[J[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/scripts/ [32mmaster*[00m [00m[Knn[90m --experimental-fetch [90mr[90mun.js[39m[KM[48Cn[39mt[K[1B[KM[55C[90ml[39m[39ml[?1l>[?2004l[1Bkntl\[31m✖[39m  No package.json found
+[1m[3m%[23m[1m[0m                                                                            k..rsive/scripts\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/scripts/ [32mmaster*[00m [00m[K[?1h=[?2004hcc[90md scripts[39m[9Dc[39md[39m [39m,[39m [39m [39m [39m [39m [39m ,  [90mscripts[39m[39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+kcd\[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mtl[39mn[39mt[39ml[?1l>[?2004l
+kntl\[32m⬢[39m  Node Task List
+[?25l[32m?[39m [1mSelect a task to run:[22m[0m [0m[2m(Use arrow keys)[22m
+[36m❯ server[39m 
+  run 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m
+  server 
+[36m❯ run[39m 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m
+  server 
+  run 
+[36m❯ test[39m [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m
+  server 
+[36m❯ run[39m 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m[36mrun[39m[27D[27C
+[?25h
+> recursive@1.0.0 run
+> node --experimental-fetch ./scriprs/run.js
+
+node:internal/modules/cjs/loader:936
+  throw err;
+  ^
+
+Error: Cannot find module '/Users/jonatanlima/dev/playground/nodejs/recursive/scriprs/run.js'
+[90m    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)[39m
+[90m    at Function.Module._load (node:internal/modules/cjs/loader:778:27)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)[39m
+[90m    at node:internal/main/run_main_module:17:47[39m {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: []
+}
+
+Node.js v17.5.0
+[31m✖[39m  Error building interactive interface
+[?25h[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004h[H[J[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[Kntl[?1l>[?2004l
+kntl\[32m⬢[39m  Node Task List
+[?25l[32m?[39m [1mSelect a task to run:[22m[0m [0m[2m(Use arrow keys)[22m
+  server 
+[36m❯ run[39m 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m[36mrun[39m[27D[27C
+[?25h
+> recursive@1.0.0 run
+> node --experimental-fetch ./scripts/run.js
+
+(node:25741) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  message: {
+    affenpinscher: [],
+    african: [],
+    airedale: [],
+    akita: [],
+    appenzeller: [],
+    australian: [ [32m'shepherd'[39m ],
+    basenji: [],
+    beagle: [],
+    bluetick: [],
+    borzoi: [],
+    bouvier: [],
+    boxer: [],
+    brabancon: [],
+    briard: [],
+    buhund: [ [32m'norwegian'[39m ],
+    bulldog: [ [32m'boston'[39m, [32m'english'[39m, [32m'french'[39m ],
+    bullterrier: [ [32m'staffordshire'[39m ],
+    cattledog: [ [32m'australian'[39m ],
+    chihuahua: [],
+    chow: [],
+    clumber: [],
+    cockapoo: [],
+    collie: [ [32m'border'[39m ],
+    coonhound: [],
+    corgi: [ [32m'cardigan'[39m ],
+    cotondetulear: [],
+    dachshund: [],
+    dalmatian: [],
+    dane: [ [32m'great'[39m ],
+    deerhound: [ [32m'scottish'[39m ],
+    dhole: [],
+    dingo: [],
+    doberman: [],
+    elkhound: [ [32m'norwegian'[39m ],
+    entlebucher: [],
+    eskimo: [],
+    finnish: [ [32m'lapphund'[39m ],
+    frise: [ [32m'bichon'[39m ],
+    germanshepherd: [],
+    greyhound: [ [32m'italian'[39m ],
+    groenendael: [],
+    havanese: [],
+    hound: [
+      [32m'afghan'[39m, [32m'basset'[39m,
+      [32m'blood'[39m,  [32m'english'[39m,
+      [32m'ibizan'[39m, [32m'plott'[39m,
+      [32m'walker'[39m
+    ],
+    husky: [],
+    keeshond: [],
+    kelpie: [],
+    komondor: [],
+    kuvasz: [],
+    labradoodle: [],
+    labrador: [],
+    leonberg: [],
+    lhasa: [],
+    malamute: [],
+    malinois: [],
+    maltese: [],
+    mastiff: [ [32m'bull'[39m, [32m'english'[39m, [32m'tibetan'[39m ],
+    mexicanhairless: [],
+    mix: [],
+    mountain: [ [32m'bernese'[39m, [32m'swiss'[39m ],
+    newfoundland: [],
+    otterhound: [],
+    ovcharka: [ [32m'caucasian'[39m ],
+    papillon: [],
+    pekinese: [],
+    pembroke: [],
+    pinscher: [ [32m'miniature'[39m ],
+    pitbull: [],
+    pointer: [ [32m'german'[39m, [32m'germanlonghair'[39m ],
+    pomeranian: [],
+    poodle: [ [32m'miniature'[39m, [32m'standard'[39m, [32m'toy'[39m ],
+    pug: [],
+    puggle: [],
+    pyrenees: [],
+    redbone: [],
+    retriever: [ [32m'chesapeake'[39m, [32m'curly'[39m, [32m'flatcoated'[39m, [32m'golden'[39m ],
+    ridgeback: [ [32m'rhodesian'[39m ],
+    rottweiler: [],
+    saluki: [],
+    samoyed: [],
+    schipperke: [],
+    schnauzer: [ [32m'giant'[39m, [32m'miniature'[39m ],
+    setter: [ [32m'english'[39m, [32m'gordon'[39m, [32m'irish'[39m ],
+    sheepdog: [ [32m'english'[39m, [32m'shetland'[39m ],
+    shiba: [],
+    shihtzu: [],
+    spaniel: [
+      [32m'blenheim'[39m,
+      [32m'brittany'[39m,
+      [32m'cocker'[39m,
+      [32m'irish'[39m,
+      [32m'japanese'[39m,
+      [32m'sussex'[39m,
+      [32m'welsh'[39m
+    ],
+    springer: [ [32m'english'[39m ],
+    stbernard: [],
+    terrier: [
+      [32m'american'[39m,     [32m'australian'[39m,
+      [32m'bedlington'[39m,   [32m'border'[39m,
+      [32m'cairn'[39m,        [32m'dandie'[39m,
+      [32m'fox'[39m,          [32m'irish'[39m,
+      [32m'kerryblue'[39m,    [32m'lakeland'[39m,
+      [32m'norfolk'[39m,      [32m'norwich'[39m,
+      [32m'patterdale'[39m,   [32m'russell'[39m,
+      [32m'scottish'[39m,     [32m'sealyham'[39m,
+      [32m'silky'[39m,        [32m'tibetan'[39m,
+      [32m'toy'[39m,          [32m'welsh'[39m,
+      [32m'westhighland'[39m, [32m'wheaten'[39m,
+      [32m'yorkshire'[39m
+    ],
+    tervuren: [],
+    vizsla: [],
+    waterdog: [ [32m'spanish'[39m ],
+    weimaraner: [],
+    whippet: [],
+    wolfhound: [ [32m'irish'[39m ]
+  },
+  status: [32m'success'[39m
+}
+(node:25741) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+[?25h[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004h[?2004l
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mtl[39mn[39mt[39m [?1l>[?2004l
+knt\
+> recursive@1.0.0 run
+> node --experimental-fetch ./scripts/run.js
+
+(node:25962) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+undefined:1
+Not found
+^
+
+SyntaxError: Unexpected token N in JSON at position 0
+    at JSON.parse (<anonymous>)
+[90m    at Response.json (node:internal/deps/undici/undici:5947:21)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:96:5)[39m
+    at async file:///Users/jonatanlima/dev/playground/nodejs/recursive/scripts/run.js:2:14
+
+Node.js v17.5.0
+node:child_process:905
+    throw err;
+    ^
+
+Error: Command failed: npm run run
+[90m    at checkExecSyncError (node:child_process:828:11)[39m
+[90m    at execSync (node:child_process:902:15)[39m
+    at /Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:198:3
+    at Array.forEach (<anonymous>)
+    at executeCommands (/Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:197:7)
+    at runCachedTask (/Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:166:3)
+    at hasCachedTasks (/Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:170:9)
+    at run (/Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:262:6)
+    at Object.<anonymous> (/Users/jonatanlima/.nvm/versions/node/v17.5.0/lib/node_modules/[4mntl[24m/cli.js:294:2)
+[90m    at Module._compile (node:internal/modules/cjs/loader:1097:14)[39m {
+  status: [33m1[39m,
+  signal: [1mnull[22m,
+  output: [ [1mnull[22m, [1mnull[22m, [1mnull[22m ],
+  pid: [33m25961[39m,
+  stdout: [1mnull[22m,
+  stderr: [1mnull[22m
+}
+
+Node.js v17.5.0
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mt[39mn[39mtl[?1l>[?2004l
+kntl\[32m⬢[39m  Node Task List
+[?25l[32m?[39m [1mSelect a task to run:[22m[0m [0m[2m(Use arrow keys)[22m
+[36m❯ server[39m 
+  run 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m
+  server 
+[36m❯ run[39m 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m[36mrun[39m[27D[27C
+[?25h
+> recursive@1.0.0 run
+> node --experimental-fetch ./scripts/run.js
+
+(node:26695) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+node:internal/deps/undici/undici:7035
+          p.reject(Object.assign(new TypeError("fetch failed"), { cause: response.error }));
+                                 ^
+
+TypeError: fetch failed
+[90m    at Object.processResponse (node:internal/deps/undici/undici:7035:34)[39m
+[90m    at Fetch.fetchFinale (node:internal/deps/undici/undici:7365:21)[39m
+[90m    at Fetch.mainFetch (node:internal/deps/undici/undici:7259:21)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:96:5)[39m {
+  cause: SocketError: other side closed
+  [90m    at Socket.onSocketEnd (node:internal/deps/undici/undici:2146:27)[39m
+  [90m    at Socket.emit (node:events:538:35)[39m
+  [90m    at endReadableNT (node:internal/streams/readable:1342:12)[39m
+  [90m    at processTicksAndRejections (node:internal/process/task_queues:83:21)[39m {
+    code: [32m'UND_ERR_SOCKET'[39m,
+    socket: {
+      localAddress: [32m'::1'[39m,
+      localPort: [33m50168[39m,
+      remoteAddress: [32m'::1'[39m,
+      remotePort: [33m1203[39m,
+      remoteFamily: [32m'IPv6'[39m,
+      timeout: [90mundefined[39m,
+      bytesWritten: [33m171[39m,
+      bytesRead: [33m0[39m
+    }
+  }
+}
+
+Node.js v17.5.0
+[31m✖[39m  Error building interactive interface
+[?25h[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mtl[39mn[39mt[39ml[?1l>[?2004l
+kntl\[32m⬢[39m  Node Task List
+[?25l[32m?[39m [1mSelect a task to run:[22m[0m [0m[2m(Use arrow keys)[22m
+[36m❯ server[39m 
+  run 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m
+  server 
+[36m❯ run[39m 
+  test [7D[7C[2K[1A[2K[1A[2K[1A[2K[G[32m?[39m [1mSelect a task to run:[22m[0m [0m[36mrun[39m[27D[27C
+[?25h
+> recursive@1.0.0 run
+> node --experimental-fetch ./scripts/run.js
+
+(node:27225) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Response {
+  [[32mSymbol(realm)[39m]: [1mnull[22m,
+  [[32mSymbol(state)[39m]: {
+    internalResponse: {
+      internalResponse: [1mnull[22m,
+      aborted: [33mfalse[39m,
+      rangeRequested: [33mfalse[39m,
+      timingAllowPassed: [33mfalse[39m,
+      type: [32m'default'[39m,
+      status: [33m404[39m,
+      timingInfo: [36m[Object][39m,
+      cacheState: [32m''[39m,
+      statusText: [32m'Not Found'[39m,
+      headersList: [36m[HeadersList][39m,
+      body: [36m[Object][39m,
+      urlList: [36m[Array][39m
+    },
+    aborted: [33mfalse[39m,
+    rangeRequested: [33mfalse[39m,
+    timingAllowPassed: [33mtrue[39m,
+    type: [32m'basic'[39m,
+    status: [33m404[39m,
+    timingInfo: {
+      startTime: [33m65.71454899990931[39m,
+      redirectStartTime: [33m0[39m,
+      redirectEndTime: [33m0[39m,
+      postRedirectStartTime: [33m65.71454899990931[39m,
+      finalServiceWorkerStartTime: [33m0[39m,
+      finalNetworkResponseStartTime: [33m0[39m,
+      finalNetworkRequestStartTime: [33m0[39m,
+      endTime: [33m0[39m,
+      encodedBodySize: [33m9[39m,
+      decodedBodySize: [33m9[39m,
+      finalConnectionTimingInfo: [1mnull[22m
+    },
+    cacheState: [32m''[39m,
+    statusText: [32m'Not Found'[39m,
+    headersList: HeadersList(8) [
+      [32m'connection'[39m,
+      [32m'keep-alive'[39m,
+      [32m'date'[39m,
+      [32m'Sat, 12 Mar 2022 10:40:18 GMT'[39m,
+      [32m'keep-alive'[39m,
+      [32m'timeout=5'[39m,
+      [32m'transfer-encoding'[39m,
+      [32m'chunked'[39m
+    ],
+    body: { stream: [90mundefined[39m },
+    urlList: [ [36m[URL][39m ]
+  },
+  [[32mSymbol(headers)[39m]: HeadersList(8) [
+    [32m'connection'[39m,
+    [32m'keep-alive'[39m,
+    [32m'date'[39m,
+    [32m'Sat, 12 Mar 2022 10:40:18 GMT'[39m,
+    [32m'keep-alive'[39m,
+    [32m'timeout=5'[39m,
+    [32m'transfer-encoding'[39m,
+    [32m'chunked'[39m
+  ]
+}
+[?25h[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mtl[39mn[39mt[39m [?1l>[?2004l
+knt\
+> recursive@1.0.0 run
+> node --experimental-fetch ./scripts/run.js
+
+(node:27400) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Response {
+  [[32mSymbol(realm)[39m]: [1mnull[22m,
+  [[32mSymbol(state)[39m]: {
+    internalResponse: {
+      internalResponse: [1mnull[22m,
+      aborted: [33mfalse[39m,
+      rangeRequested: [33mfalse[39m,
+      timingAllowPassed: [33mfalse[39m,
+      type: [32m'default'[39m,
+      status: [33m200[39m,
+      timingInfo: [36m[Object][39m,
+      cacheState: [32m''[39m,
+      statusText: [32m'OK'[39m,
+      headersList: [36m[HeadersList][39m,
+      body: [36m[Object][39m,
+      urlList: [36m[Array][39m
+    },
+    aborted: [33mfalse[39m,
+    rangeRequested: [33mfalse[39m,
+    timingAllowPassed: [33mtrue[39m,
+    type: [32m'basic'[39m,
+    status: [33m200[39m,
+    timingInfo: {
+      startTime: [33m59.334178999997675[39m,
+      redirectStartTime: [33m0[39m,
+      redirectEndTime: [33m0[39m,
+      postRedirectStartTime: [33m59.334178999997675[39m,
+      finalServiceWorkerStartTime: [33m0[39m,
+      finalNetworkResponseStartTime: [33m0[39m,
+      finalNetworkRequestStartTime: [33m0[39m,
+      endTime: [33m0[39m,
+      encodedBodySize: [33m4[39m,
+      decodedBodySize: [33m4[39m,
+      finalConnectionTimingInfo: [1mnull[22m
+    },
+    cacheState: [32m''[39m,
+    statusText: [32m'OK'[39m,
+    headersList: HeadersList(8) [
+      [32m'connection'[39m,
+      [32m'keep-alive'[39m,
+      [32m'date'[39m,
+      [32m'Sat, 12 Mar 2022 10:40:54 GMT'[39m,
+      [32m'keep-alive'[39m,
+      [32m'timeout=5'[39m,
+      [32m'transfer-encoding'[39m,
+      [32m'chunked'[39m
+    ],
+    body: { stream: [90mundefined[39m },
+    urlList: [ [36m[URL][39m ]
+  },
+  [[32mSymbol(headers)[39m]: HeadersList(8) [
+    [32m'connection'[39m,
+    [32m'keep-alive'[39m,
+    [32m'date'[39m,
+    [32m'Sat, 12 Mar 2022 10:40:54 GMT'[39m,
+    [32m'keep-alive'[39m,
+    [32m'timeout=5'[39m,
+    [32m'transfer-encoding'[39m,
+    [32m'chunked'[39m
+  ]
+}
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mt[39mn[39mp[90mm list -g[39m[9D[39mm[39m [39mi[39m [39m [39m [39m [39m [39m [90m -g ntl[39m[39m [39m-[39mg[39m [39m [39m [39m [90m ntl[39m [39m [39m [39m [39m [90mg ntl[39m [39m [39m [39m [39m [39m [90m-g ntl[39m[39m-[39md[39m [39m [39m [39m [90m autocannon[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90mg ntl[39m[39mD[39m [39m [39m [39m [90m climem[39m[39m [39m@[39m [39m [39m [39m [39m [90mtypes/pino[39m[10D[39mt[39my[39mp[39me[39ms[39m/[39mn[39m [39m [39m ode[?1l>[?2004l
+knpm\[?25l⸨[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠏ reify: [32;40mtiming[0m [35marborist:ctor[0m Completed in 1ms[0m[K⸨[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree:recursive: [7msill[0m [35midealTree[0m buildDeps[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠴ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 93ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠇ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠦ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K⸨[107;97m##################[0m⸩ ⠧ reify:@types/node: [7msill[0m [35maudit[0m bulk request {[0m[K[K[?25h
+added 1 package, and audited 44 packages in 1s
+
+4 packages are looking for funding
+  run `npm fund` for details
+
+found [32m[1m0[22m[39m vulnerabilities
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mpm i -D @types/node[39m[19Dn[39mp[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mm i -D @types/node[39m[18D[39mm[39m [39mu[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90mninstall autocannon[39m[19D[39mn[39mi[39mn[39ms[39mt[39ma[39ml[39ml[39m [39m@[39m [39m [39m [39m [39m [39m [39m [39m [39m [9Dtypes/node[?1l>[?2004l
+knpm\[?25l⸨[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠏ reify: [32;40mtiming[0m [35marborist:ctor[0m Completed in 1ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠧ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠹ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K⸨[107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m⸩ ⠼ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 55ms[0m[K[K[?25h
+removed 1 package, and audited 43 packages in 1s
+
+4 packages are looking for funding
+  run `npm fund` for details
+
+found [32m[1m0[22m[39m vulnerabilities
+[1m[3m%[23m[1m[0m                                                                            k..ejs/recursive\[0m[23m[24m[Jλ ~/dev/playground/nodejs/recursive/ [32mmaster*[00m [00m[K[?1h=[?2004hnn[90mpm uninstall @types/node[39m[24Dn[39mv[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[90mm list[39m[39mm[39m [39ml[39mi[39ms[39mt[?1l>[?2004l
+knvm\[0;34m       v16.13.2[0m
+[0;34m       v16.14.0[0m
+[0;34m        v17.4.0[0m
+[0;32m->      v17.5.0[0m
+[0;32mdefault[0m [0;90m->[0m [0;32mv17.5.0[0m
+[0;31miojs[0m [0;90m->[0m [0;31mN/A[0m [0;37m(default)[0m
+[0;31munstable[0m [0;90m->[0m [0;31mN/A[0m [0;37m(default)[0m
+[0;32mnode[0m [0;90m->[0m [0;32mstable[0m ([0;90m->[0m [0;32mv17.5.0[0m) [0;37m(default)[0m
+[0;32mstable[0m [0;90m->[0m [0;32m17.5[0m ([0;90m->[0m [0;32mv17.5.0[0m) [0;37m(default)[0m
+[1;33mlts/*[0m [0;90m->[0m [1;33mlts/gallium[0m ([0;90m->[0m [0;34mv16.14.0[0m)
+[1;33mlts/argon[0m [0;90m->[0m [0;31mv4.9.1[0m ([0;90m->[0m [0;31mN/A[0m)
+[1;33mlts/boron[0m [0;90m->[0m [0;31mv6.17.1[0m ([0;90m->[0m [0;31mN/A[0m)
+[1;33mlts/carbon[0m [0;90m->[0m [0;31mv8.17.0[0m ([0;90m->[0m [0;31mN/A[0m)
+[1;33mlts/dubnium[0m [0;90m->[0m [0;31mv10.24.1[0m ([0;90m->[0m [0;31mN/A[0m)

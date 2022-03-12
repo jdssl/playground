@@ -24,4 +24,4 @@ const handler = (req, res) => {
 
 http
   .createServer(handler)
-  .listen(1203, logger.info('app running at', 1203))
+  .listen(1203, logger.info('app running at 1203'))
