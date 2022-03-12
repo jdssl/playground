@@ -1,29 +1,24 @@
-import http from 'http'
+import express from 'express'
 import logger from './../common/helpers/logger.js'
 
-const routes = {
-  '/data:get': (req, res) => {
-    res.writeHead(200, {
-      'x-ratelimit-reset': new Date().getTime()
-    })
-    res.write('data')
-    res.end()
-  },
-  default: (req, res) => {
-    res.writeHead(404)
-    res.write('Not found')
-    res.end()
-  }
-}
+const PORT = 1203
+const app = express()
 
-const handler = (req, res) => {
-	const { url, method } = req
-	const routerKey = `${url}:${method.toLowerCase()}`
-	const chosen = routes[routerKey] || routes.default
+app.use(express.json())
 
-	return chosen(req, res)
-}
+app.get('/data', (req, res) => {
+  res.set({
+    'x-ratelimit-reset': new Date().getTime()
+  })
 
-http
-  .createServer(handler)
-  .listen(1203, logger.info('app running at 1203'))
+  res.json({ message: 'data' })
+})
+
+app.all('*', (req, res) => {
+  res.status(404)
+     .json({ message: 'route not found' })
+})
+
+app.listen(PORT, () => {
+  logger.info(`app running at ${PORT}`)
+})
