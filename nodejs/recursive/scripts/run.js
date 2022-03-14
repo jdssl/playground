@@ -24,6 +24,8 @@ async function recursiveFn(callback, tries, ...params) {
     throw new Error('All request tries failed');
   }
 
+  console.log(`${callback.name}`)
+
   const res = await callback.apply(this, params)
   logger.info(`response: ${JSON.stringify(res.data)}`)
 
