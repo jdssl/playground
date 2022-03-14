@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "server": "node ./server/index.js | pino-pretty",
+    "run:debug": "node --inspect-brk=9229 ./scripts/run.js | pino-pretty",
     "run": "node ./scripts/run.js | pino-pretty",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

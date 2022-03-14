@@ -17,27 +17,27 @@ async function postData(body) {
   return axios.post(`${URL}/data`, body)
 }
 
-async function recursiveFn(params, callback, tries = 3) {
+async function recursiveFn(callback, tries, ...params) {
   if (tries === 0) {
     throw new Error('All request tries failed');
   }
 
   const res = await callback.apply(this, params)
-  logger.info(`response: ${JSON.stringify(res.data)}`)
+  logger.info(`response: ${res.data}`)
 
   await sleep(500)
 
-  await recursiveFn(params, callback, tries - 1)
+  await recursiveFn(callback, tries - 1, params)
 
   logger.info(tries - 1)
 }
 
 ;(async () => {
-  const body =[{ name: 'Balu', age: 27 }]
+  const body = { name: 'Balu', age: 27 }
 
   return Promise.all([
-   recursiveFn([1, 'balu'], getData),
-   recursiveFn(body, postData)
+   recursiveFn(getData, 3, 1, 'balu'),
+   recursiveFn(postData, 3, body)
   ])
 })()
 
