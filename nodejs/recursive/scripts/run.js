@@ -8,11 +8,13 @@ import { sleep } from './../common/helpers/sleep.js'
 const URL = 'http://localhost:1203'
 
 async function getData(id, name) {
+  debugger
   logger.info(`params: ${id}, ${name}`)
   return axios.get(`${URL}/data`)
 }
 
 async function postData(body) {
+  debugger
   logger.info(`body: ${JSON.stringify(body)}`)
   return axios.post(`${URL}/data`, body)
 }
@@ -37,7 +39,7 @@ async function recursiveFn(callback, tries, ...params) {
 
   return Promise.all([
    recursiveFn(getData, 3, 1, 'balu'),
-   recursiveFn(postData, 3, body)
+   // recursiveFn(postData, 3, body)
   ])
 })()
 
