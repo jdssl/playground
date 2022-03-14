@@ -39,7 +39,7 @@ async function recursiveFn(callback, tries, ...params) {
 
   return Promise.all([
    recursiveFn(getData, 3, 1, 'balu'),
-   // recursiveFn(postData, 3, body)
+   recursiveFn(postData, 3, body)
   ])
 })()
 
