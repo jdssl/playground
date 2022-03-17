@@ -40,8 +40,8 @@ async function recursiveFn(callback, tries, ...params) {
   const body = { name: 'Balu', age: 27 }
 
   return Promise.all([
-   recursiveFn(getData, 3, 1, 'balu'),
-   recursiveFn(postData, 3, body)
+   recursiveFn(getData.bind(this), 3, 1, 'balu'),
+   recursiveFn(postData.bind(this), 3, body)
   ])
 })()
 
