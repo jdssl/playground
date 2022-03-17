@@ -26,8 +26,8 @@ async function recursiveFn(callback, tries, ...params) {
 
   logger.info(`${callback.name}`)
 
-  const res = await callback.apply(this, params)
-  logger.info(`response: ${JSON.stringify(res.data)}`)
+  const res = await callback(...params)
+  logger.info(`response: ${callback.name} - ${JSON.stringify(res.data)}`)
 
   await sleep(500)
 
