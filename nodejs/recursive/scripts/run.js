@@ -31,7 +31,7 @@ async function recursiveFn(callback, tries, ...params) {
 
   await sleep(500)
 
-  await recursiveFn(callback, tries - 1, params)
+  await recursiveFn(callback, tries - 1, ...params)
 
   logger.info(tries - 1)
 }
