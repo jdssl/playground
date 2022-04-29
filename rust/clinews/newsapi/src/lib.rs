@@ -103,9 +103,9 @@ impl NewsAPI {
     fn prepare_url(&self) -> Result<String, NewsApiError> {
         dotenv().ok();
 
-        let BASE_URL = env::var("BASE_URL").expect("BASE_URL must be set");
+        let base_url = env::var("BASE_URL").expect("BASE_URL must be set");
 
-        let mut url = Url::parse(&BASE_URL)?;
+        let mut url = Url::parse(&base_url)?;
         url.path_segments_mut()
             .unwrap()
             .push(&self.endpoint.to_string());
