@@ -24,4 +24,24 @@ fn main() {
     }
 
     ///////////////////////////////////////////////////////
+
+    // References & Borrowing
+    let s4 = String::from("rust by references and borrowing");
+    do_stuff_ref(&s4);
+    println!("{}", s4); // s4 yet is the owner
+
+    fn do_stuff_ref(s: &String) -> &String {
+        s
+    }
+
+    let mut s5 = String::from("rust");
+    println!("{}", s5);
+    do_stuff_ref_mut(&mut s5);
+    println!("{}", s5);
+
+    fn do_stuff_ref_mut(s: &mut String) {
+        s.insert_str(0, "Hi, ");
+        // (*s).insert_str(0, "Hi, ");
+        // *s = String::from("Change");
+    }
 }
