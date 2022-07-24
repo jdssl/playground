@@ -9,11 +9,16 @@ fn main() {
         fn new(name: String, age: i8) -> Self {
             Self { name, age }
         }
+        fn say_hello_directy(&self) -> &str {
+            "Hello my friend"
+        }
     }
 
     let person = Person::new(String::from("Balu"), 27);
+    let directy_message = person.say_hello_directy();
 
     println!("{} is {} years old", person.name, person.age);
+    println!("{}", directy_message);
 
     // Trait
     trait Action {
