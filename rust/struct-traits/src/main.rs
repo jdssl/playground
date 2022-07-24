@@ -33,4 +33,17 @@ fn main() {
 
     let message = person.say_hello();
     println!("The Elliot say: {}", message);
+
+    // Generic function
+    fn say_generic<T: Action>(item: T) {
+        println!("{}", item.say_hello());
+    }
+
+    impl Action for u8 {
+        fn say_hello(&self) -> String {
+            String::from("BYTES")
+        }
+    }
+
+    say_generic(5_u8);
 }
