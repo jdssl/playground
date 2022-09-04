@@ -9,12 +9,12 @@ fn main() {
 
     let v = vec![1, 2, 3, 4];
 
-    let r = v
-        .iter()
-        .map(|x| x * 3)
-        .filter(|x| *x > 10)
-        .fold(0, |acc, x| acc + x);
+    let r: i32 = v.iter().map(|x| x * 3).filter(|x| *x > 10).sum();
 
     println!("vec: {:?}", v);
     println!("r: {:?}", r);
+
+    let add = |x, y| x + y;
+
+    println!("add: {}", add(1, 2));
 }
