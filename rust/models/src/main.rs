@@ -50,10 +50,10 @@ fn get_peoples() -> Vec<People> {
 }
 
 fn get_persons_by_hobby(hobby: String) -> Vec<PeopleMin> {
-    let persons: Vec<People> = get_peoples();
+    let persons = get_peoples();
     persons
         .into_iter()
         .filter(|p| p.hobby == hobby)
         .map(PeopleMin::from)
-        .collect()
+        .collect::<Vec<PeopleMin>>()
 }
