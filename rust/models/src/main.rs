@@ -23,7 +23,7 @@ impl From<People> for PeopleMin {
 fn main() {
     let hobby: String = String::from("music");
     let peoples_by_hobby: Vec<PeopleMin> = get_persons_by_hobby(hobby);
-    println!("{:?}", peoples_by_hobby);
+    println!("{:#?}", peoples_by_hobby);
 }
 
 fn get_peoples() -> Vec<People> {
