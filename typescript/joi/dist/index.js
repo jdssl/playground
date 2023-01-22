@@ -45,5 +45,6 @@ const response = saveShinigami({
     zanpakuto: 'Zangetsu',
     bankai: 'Tensa Zangetsu'
 });
+// Throw error!
 console.log({ saveShinigami: response });
 //# sourceMappingURL=index.js.map
