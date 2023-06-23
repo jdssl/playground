@@ -6,3 +6,4 @@
 - `gcc -Wall -Wextra -Werror -o hello hello.c`
 - `clang -Wall -Wextra -Werror -o hello hello.c`
 - `cl hello.c`
+- `gcc -Wall cube.c -o cube -lm`
