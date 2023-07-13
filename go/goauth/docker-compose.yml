@@ -1,0 +1,42 @@
+version: '3'
+services:
+  db:
+    env_file:
+      - .env
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: goauth
+    ports:
+      - "5432:5432"
+    networks:
+      - goauth_net
+
+
+  api:
+    env_file:
+      - .env
+    image: goauth:latest # for the purpose of this example, we will use the image we just built
+    build: .
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: 5432
+      DB_SSL_MODE: disable
+      DB_TIMEZONE: UTC
+      CREDENTIAL_NAME: ${CREDENTIAL_NAME}
+      CREDENTIAL_PASSWORD: ${CREDENTIAL_PASSWORD}
+    ports:
+      - "9876:9876"
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - goauth_net
+
+networks:
+  goauth_net:
+
