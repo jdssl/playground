@@ -12,7 +12,7 @@ int main() {
   signed long long int lin = 2147483647;
 
   /*
-   * each of these signed integer types has an usigned version
+   * each of these signed integer types has an unsigned version
    * unsigned int i = 65535;
    * unsigned short = 2767;
    * unsigned char = 255;
